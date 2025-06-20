@@ -3,6 +3,14 @@ const ONE_SIDE = 500;
 
 let parentContainer = document.querySelector(".container");
 
+let resetButton = document.querySelector(".reset");
+
+let inputEl = document.querySelector("#gridNum");
+
+let createBtn = document.querySelector(".create");
+
+
+
 function draw(gridNum){
 
     let totalGrids = gridNum * gridNum; 
@@ -21,7 +29,7 @@ function draw(gridNum){
     
         new_el.style.width = `${lengthSide - 2}px`;
         new_el.classList.add('grid');
-        new_el.addEventListener("mouseenter" , (e) => e.target.style.backgroundColor = "black")
+        new_el.addEventListener("mouseenter" , (e) => e.target.classList.add("bg-color"));
 
         parentContainer.appendChild(new_el);
 
@@ -32,23 +40,44 @@ function draw(gridNum){
 }
 
 
-
-   /*  let gridNum = Number(prompt("Enter the number of grids: "));
-
+resetButton.addEventListener("click", ()=>{
 
 
-    if(gridNum >= 100){
 
-        alert("Please enter another number."); 
+  
+     
+    let elements = document.querySelectorAll(".bg-color");
 
+    elements.forEach( (element) => 
+    {
+        element.classList.remove("bg-color")
     }
-    else{
+);
 
-        draw(gridNum);
 
-    } */
 
-        draw(64);
+})
+
+createBtn.addEventListener("click" , (e) => {
+
+    let gridNum = Number(inputEl.value);
+    let grids = document.querySelectorAll(".grid");
+
+    grids.forEach((elem) =>
+        
+        {
+            elem.parentNode.removeChild(elem);
+        }
+    );
+
+    draw(gridNum);
+
+})
+
+
+
+
+
 
 
 

@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+background: linear-gradient(90deg, hsla(175, 79%, 63%, 1) 0%, hsla(82, 96%, 57%, 1) 100%);
+}
+.grid{
+    border: .015px solid whitesmoke;
+}
+.container{
+    margin-top: 50px;
+    height: 500px;
+    width: 500px;
+    border: .01px solid whitesmoke;
+
+
+    display: flex;
+    flex-wrap: wrap; 
+
+
+}
